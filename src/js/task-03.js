@@ -12,3 +12,9 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const itemEl = document.createElement('li');
+const imgEl = document.createElement('img');
+imgEl.src = images[0].url;
+
+console.log(imgEl)
