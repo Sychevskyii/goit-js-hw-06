@@ -5,34 +5,20 @@ function getRandomHexColor() {
 }
 
 
-const inputEl = document.getElementsByTagName('input');
-const createBtnEl = document.querySelector('button[data-create]');
-const destroyBtnEl = document.querySelector('button[data-destroy]');
-const boxesEl = document.querySelector('#boxes');
 
-// console.log()
+const elements = {
+    input: document.getElementsByTagName('input'),
+    createBtn: document.querySelector('button[data-create]'),
+    destroyBtn: document.querySelector('button[data-destroy]'),
+    boxes: document.querySelector('#boxes')
+};
 
-// function createBoxes(amount) {
-//     inputEl[0].addEventListener('change', () => {
-//       let amount = parseInt(inputEl[0].value);
-//       amount(amount);
-//     });
-// }
+function createBoxes(amount) {
+    let numOfBoxes = parseInt(elements.input[0].value);
+    amount(numOfBoxes);
 
-// // Приклад виклику createBoxes з функцією зворотного виклику
-// createBoxes(function(amount) {
-//   console.log("New amount:", amount);
-// });
-
-
-function createBoxes(callback) {
-    inputEl[0].addEventListener('change', () => {
-        const amount = parseInt(inputEl[0].value);
-        callback(amount);
-    });
+    elements.createBtn.addEventListener('click', () => {
+        
+    })
 }
 
-// Приклад виклику createBoxes з функцією зворотного виклику
-createBoxes(function(amount) {
-    console.log("New amount:", amount);
-});
