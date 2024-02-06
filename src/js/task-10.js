@@ -4,21 +4,33 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-
-
-const elements = {
-    input: document.getElementsByTagName('input'),
-    createBtn: document.querySelector('button[data-create]'),
-    destroyBtn: document.querySelector('button[data-destroy]'),
-    boxes: document.querySelector('#boxes')
-};
-
 function createBoxes(amount) {
-    let numOfBoxes = parseInt(elements.input[0].value);
-    amount(numOfBoxes);
+  const boxesEl = document.querySelector("#boxes");
+  boxesEl.innerHTML = "";
 
-    elements.createBtn.addEventListener('click', () => {
-        
-    })
+  let defaultSizeOfBox = 30;
+
+  for (let i = 0; i < amount; i += 1) {
+    const box = document.createElement("div");
+    box.classList.add("box");
+    box.style.width = `${defaultSizeOfBox}px`;
+    box.style.height = `${defaultSizeOfBox}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    boxesEl.appendChild(box);
+    defaultSizeOfBox += 10;
+  }
 }
 
+function destroyBoxes() {
+  const boxesEl = document.querySelector("#boxes");
+  boxesEl.innerHTML = "";
+}
+
+document.querySelector("button[data-create]").addEventListener("click", () => {
+  let amount = parseInt(document.querySelector("input").value);
+  createBoxes(amount);
+});
+
+document.querySelector("button[data-destroy]").addEventListener("click", () => {
+  destroyBoxes();
+});
