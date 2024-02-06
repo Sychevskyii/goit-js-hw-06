@@ -17,8 +17,7 @@ formEl.addEventListener('submit', (event) => {
             }
         }
         console.log(dataForm);
-        // dataForm[email.name, password.name] = email.value, password.value;
-        // console.log(dataForm);
+        formEl.reset();
     } else {
         alert('Any field cannot be empty');
     }
